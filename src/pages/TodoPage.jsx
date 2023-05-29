@@ -137,7 +137,7 @@ const TodoPage = () => {
         onSave={handleSave}
         onDelete={handleDelete}
       />
-      <Footer />
+      <Footer onAmount={todos.length}/>
     </div>
   );
 };
