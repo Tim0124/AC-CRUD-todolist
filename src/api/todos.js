@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const baseUrl = ' http://localhost:3001/todos';
+const baseUrl = ' http://localhost:3001';
 
 export const getTodos = async () => {
   try {
-   const res = axios.get(`${baseUrl}/todos`)
-
+   const res = await axios.get(`${baseUrl}/todos`)
    return res.data
   } catch(error) {
     console.error('[Get Todos failed]:', error)
@@ -40,7 +39,7 @@ export const patchTodo = async (payload) => {
 
 export const deleteTodo = async (id) => {
   try {
-    const res = await axios.delete(`${baseUrl}.todos/${id}`)
+    const res = await axios.delete(`${baseUrl}/todos/${id}`)
     return res.data
   } catch (error) {
     console.error('[Delete Todo failed]:', error);
