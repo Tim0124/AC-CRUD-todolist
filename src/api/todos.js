@@ -21,20 +21,28 @@ export const createTodo = async (payload) => {
     })
     return res.data
   } catch (error) {
-    console.error('[Create Todos failed]:', error);
+    console.error('[Create Todo failed]:', error);
   }
 };
 
-const patchTodo = async () => {
+export const patchTodo = async (payload) => {
   try {
+    const { id, title, isDone } = payload;
+    const res = await axios.patch(`${baseUrl}/todos/${id}`, {
+      title,
+      isDone,
+    })
+    return res.data
   } catch (error) {
-    console.error('[Get Todos failed]:', error);
+    console.error('[Patch Todo failed]:', error);
   }
 };
 
-const deleteTodo = async () => {
+export const deleteTodo = async (id) => {
   try {
+    const res = await axios.delete(`${baseUrl}.todos/${id}`)
+    return res.data
   } catch (error) {
-    console.error('[Get Todos failed]:', error);
+    console.error('[Delete Todo failed]:', error);
   }
 };
