@@ -124,11 +124,10 @@ const TodoPage = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async ({id}) => {
     try {
-      await deleteTodo({
-        id,
-      });
+      await deleteTodo(id)
+
       setTodos((prevTodos) => {
         return prevTodos.filter((todo) => {
           return todo.id !== id;
