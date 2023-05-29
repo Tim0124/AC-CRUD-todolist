@@ -1,6 +1,6 @@
 import { Footer, Header, TodoCollection, TodoInput } from 'components';
 import { useState } from 'react';
-import { Value } from 'sass';
+
 
 const dummyTodos = [
   {
@@ -29,8 +29,8 @@ const TodoPage = () => {
   const [inputValue, setInputValue] = useState('')
   const [todos, setTodos] = useState(dummyTodos)
 
-  const handleChange = (Value) => {
-    setInputValue(Value);
+  const handleChange = (value) => {
+    setInputValue(value);
   };
 
 
@@ -111,6 +111,15 @@ const TodoPage = () => {
     })
   }
 
+  const handleDelete = ({id}) => {
+    console.log(id)
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => {
+        return todo.id !== id
+      })
+    })
+  }
+
   return (
     <div>
       TodoPage
@@ -126,6 +135,7 @@ const TodoPage = () => {
         onToggleDone={handleToggleDone}
         onChangeMode={handleChangeMode}
         onSave={handleSave}
+        onDelete={handleDelete}
       />
       <Footer />
     </div>
