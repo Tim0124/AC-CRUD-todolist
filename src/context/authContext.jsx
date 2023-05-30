@@ -17,7 +17,7 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
-  const { pathname } = useLocation()
+  const {pathname} = useLocation()
 
   useEffect(() => {
     const checkTokenValid = async () => {
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
       }
       const result = await checkPermission(authToken);
       if (result) {
-        isAuthenticated(true);
+        setIsAuthenticated(true);
         const tempPayload = jwt.decode(authToken);
         setPayload(tempPayload);
       } else {
