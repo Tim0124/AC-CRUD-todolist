@@ -1,7 +1,7 @@
 {
   "name": "todolist-react",
   "version": "0.1.0",
-  "homepage": "https://Tim0124github.io/AC-CRUD-todolist",
+  "homepage": "https://Tim0124.github.io/AC-CRUD-todolist",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
