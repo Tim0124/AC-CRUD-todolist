@@ -146,7 +146,7 @@ const TodoPage = () => {
     const getTodosAsync = async () => {
       try {
         const todos = await getTodos();
-        setTodos(todos.map(todo => ({ ...todo, isEdit: false })));
+        setTodos(todos.map((todo) => ({ ...todo, isEdit: false })));
       } catch (error) {
         console.error(error);
       }
